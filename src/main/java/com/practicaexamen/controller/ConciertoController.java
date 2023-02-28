@@ -17,11 +17,11 @@ public class ConciertoController {
     @Autowired
     private IConciertoService conciertoService;
     
-    @GetMapping("/concierto")
+    @GetMapping("/")
     public String index(Model model){
         List<Concierto> listaConcierto = conciertoService.getAllConcierto();
         model.addAttribute("titulo", "Tabla conciertos");
-        model.addAttribute("concierto", listaConcierto);
+        model.addAttribute("conciertos", listaConcierto);
         return "conciertos";
     }
     
