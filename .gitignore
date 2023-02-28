@@ -22,6 +22,7 @@ target/
 ### NetBeans ###
 nbactions.xml
 pom.xml
+/src/main/resources/application.properties
 /nbproject/private/
 /nbbuild/
 /dist/
