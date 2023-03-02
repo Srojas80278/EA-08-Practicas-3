@@ -17,7 +17,7 @@
                         <h1 class="text-center">Agregar concierto</h1>
                         <div class="card-body">
 
-                            <form th:action="@{/concierto}" th:object="${concierto}" method="POST">
+                            <form th:action="@{/guardar}" th:object="${concierto}" method="POST">
                                 <div class="form-group">
                                     <label>Artista: </label>
                                     <input type="text" name="artista" 
