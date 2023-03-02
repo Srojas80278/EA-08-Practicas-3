@@ -2,41 +2,58 @@
 <!-- Esto nos permite poder manipular la información que proviene del BackEnd -->
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Mi Tienda</title>
+        <title>Conciertos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="icons/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>    
     </head>
 
     <body>
-        <h1 th:text="${titulo}"></h1>
-        <table class="table table-dark table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <!-- table row -->                    
-                    <th scope="col">Artista</th>
-                    <!-- table heading -->                    
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Lugar</th>
-                    <th scope="col">Costo</th>
-                    <th scope="col">Capacidad</th>
-                </tr>
-            </thead>
-            <tbody>
+        <h1 class="text-center" th:text="${titulo}"></h1>
 
-            <th:block th:each="user : ${conciertos}">
-                <tr>
-                    <td th:text="${user.getArtista}"></td>
-                    <td th:text="${user.getFecha}"></td>
-                    <td th:text="${user.getLugar}"></td>
-                    <td th:text="${user.getCosto}"></td>
-                    <td th:text="${user.getCapacidad}"></td>
-                    <td><a th:href="@{/delete/{id}(id=${user.getId})}">Delete</a>                    </td>
-                </tr>
-                
-            </th:block>
-        </tbody>
-    </table>
-</body>
+        <div class="col-auto bg-white p-3 text-center">
+            <table class="table table-dark table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <!-- table row -->                    
+                        <th scope="col">Artista</th>
+                        <!-- table heading -->                    
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Lugar</th>
+                        <th scope="col">Costo</th>
+                        <th scope="col">Capacidad</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <th:block th:each="user : ${conciertos}">
+                    <tr>
+                        <td th:text="${user.getArtista}"></td>
+                        <td th:text="${user.getFecha}"></td>
+                        <td th:text="${user.getLugar}"></td>
+                        <td th:text="${user.getCosto}"></td>
+                        <td th:text="${user.getCapacidad}"></td>
+                        <td><a th:href="@{/delete/{id}(id=${user.getId})}">
+                                <!-- Icono de basurero -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-auto bg-white p-3 text-center">
+            <a class="btn btn-primary" href="/concierto/crear" role="button">Agregar concierto</a>
+        </div>
+
+    </body>
 </html>
