@@ -24,7 +24,8 @@
                         <th scope="col">Lugar</th>
                         <th scope="col">Costo</th>
                         <th scope="col">Capacidad</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Borrar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,7 @@
                         <td th:text="${user.getLugar}"></td>
                         <td th:text="${user.getCosto}"></td>
                         <td th:text="${user.getCapacidad}"></td>
+                  <td><a th:href="@{/editConcierto/{id}(id=${user.getId})}">Editar</a></td>
                         <td><a th:href="@{/eliminar(id=${user.id})}">
                                 <!-- Icono de basurero -->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-trash" viewBox="0 0 16 16">
