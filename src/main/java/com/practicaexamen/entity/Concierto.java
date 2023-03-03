@@ -1,7 +1,7 @@
 package com.practicaexamen.entity;
 import java.io.Serializable;
 import jakarta.persistence.*; //Importamos todos los "import" de jakarta.
-
+//test
 @Entity
 @Table(name = "conciertos") //Nombre de la tabla en MySQL
 public class Concierto implements Serializable{
